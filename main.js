@@ -1,6 +1,12 @@
 canvas=document.getElementById("myCanvas");
 ctx=canvas.getContext("2d");
-background_image="mars.jpg";
+images_array=["https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG",
+"https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/rcam/RLB_486265291EDR_F0481570RHAZ00323M_.JPG",
+"https://mars.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg",
+"mars.jpg"];
+random_number=Math.floor(Math.random()*4);
+
+background_image=images_array[random_number];
 rover_image="rover.jpg";
 rover_X=10;
 rover_Y=10;
@@ -37,3 +43,35 @@ function my_keydown(e){
         down();
     }
 }
+function up(){
+if (rover_Y>=0){
+rover_Y =rover_Y -10;
+uploadBackground();
+uploadRover();
+}
+}
+
+function down(){
+    if (rover_Y<=500){
+    rover_Y =rover_Y +10;
+    uploadBackground();
+    uploadRover();
+    }
+    }
+
+    function left(){
+        if (rover_X>=0){
+        rover_X =rover_X -10;
+        uploadBackground();
+        uploadRover();
+        }
+        }
+        
+        function right(){
+            if (rover_X<=700){
+            rover_X =rover_X +10;
+            uploadBackground();
+            uploadRover();
+            }
+            }
+        
